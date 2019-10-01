@@ -31,36 +31,17 @@ def testing_board():
     return test_board
 
 def input_user_col(user_board):
+    sign_tuple = ('A','B','C','D','E','F','G','H')
     converted = False
     cords_int = -1
     print('Czas na oddanie strzału.')
     while not converted:
-        cords = input('Podaj kolumne:')
-        if len(cords) == 1 and (cords == 'a' or cords == 'A' or cords == 'B' or cords == 'b' or cords == 'c' or cords == 'C' or cords == 'd' or cords == 'D' or cords == 'e' or cords == 'E' or cords == 'f' or cords == 'F' or cords == 'g' or cords == 'G' or cords == 'h' or cords == 'H' or cords == 'i' or cords == 'I' or cords == 'j' or cords == 'J'):
-            converted = True
+        cords = input('Podaj kolumne:')   
+        if cords.upper() in sign_tuple:
+                converted = True
         else:
             print_all(user_board)
-    if cords == 'a' or cords == 'A':
-        cords_int = 1
-    if cords == 'b' or cords == 'B':
-        cords_int = 2
-    if cords == 'c' or cords == 'C':
-        cords_int = 3
-    if cords == 'd' or cords == 'D':
-        cords_int = 4
-    if cords == 'e' or cords == 'E':
-        cords_int = 5
-    if cords == 'f' or cords == 'F':
-        cords_int = 6
-    if cords == 'g' or cords == 'G':
-        cords_int = 7
-    if cords == 'h' or cords == 'H':
-        cords_int = 8
-    if cords == 'i' or cords == 'I':
-        cords_int = 9
-    if cords == 'j' or cords == 'J':
-        cords_int = 10
-        
+        cords_int = sign_tuple.index(cords-1) + 1
     return cords_int
 
 def input_user_row(user_board):
